@@ -1,0 +1,19 @@
+﻿@use '../base/variables' as *;
+
+%card {
+  background: #fff;
+  border-radius: $radius;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
+  padding: 12px;
+}
+
+.card { @extend %card; }
+
+.promo {
+  background: $pink;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+}

@@ -1,0 +1,291 @@
+﻿@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// атрибут hidden должен работать всегда
+[hidden] { display: none !important; }
+
+main { margin: 0; padding: 0; }
+
+main > section,
+main > aside {
+  max-width: 1280px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
+}
+
+.hero h1 { text-align: center; }
+
+// ---------- услуги ----------
+.services__list { @include flex; }
+
+.service {
+  @include flex(12px);
+  flex: 1;
+
+  img { width: 45%; border-radius: 12px; object-fit: cover; }
+}
+
+.booking__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch; // обе колонки одной высоты
+}
+
+.booking__left { display: flex; flex-direction: column; gap: 20px; }
+
+.booking__left { display: grid; gap: 20px; }
+
+.calendar {
+  padding: 16px;
+
+  &__nav { @include flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  &__nav button { background: none; border: 0; font-size: 22px; cursor: pointer; }
+  &__weekdays, &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+  }
+  &__days button { border: 0; border-radius: 12px; padding: 8px 0; cursor: pointer; background: $beige; }
+  &__days .busy   { background: $olive; cursor: not-allowed; }
+  &__days .picked { background: $terracotta; color: #fff; }
+  &__legend { margin: 12px 0 0; font-size: 12px; }
+}
+// информация о бронировании: занимает свободное место между календарём и «Ваш выбор»
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+
+  h3 { margin: 0 0 14px; font-size: 22px; }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 8px;
+    text-align: center;
+    background: $cream;
+    border-radius: 14px;
+  }
+
+  &__icon { font-size: 26px; line-height: 1; }
+
+  &__label {
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #7a6a60;
+  }
+
+  &__value { font-family: $font-head; font-size: 22px; font-weight: 400; }
+}
+
+.summary {
+  padding: 20px;
+
+  h3 { margin: 0 0 8px; font-size: 22px; }
+  &__dates { margin: 0 0 10px; font-size: 16px; }
+}
+
+.total { margin: 0 0 6px; font-size: 18px; font-weight: 700; }
+.total__details { margin: 0 0 12px; font-size: 13px; color: #7a6a60; white-space: pre-line; }
+.total:empty,
+.total__details:empty { display: none; }
+
+.note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  background: $pink;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+
+  &__icon { font-size: 18px; line-height: 1.3; }
+  a { color: $text; font-weight: 700; white-space: nowrap; }
+}
+
+// форма справа
+.booking__form {
+  padding: 20px;
+
+  h3 { margin: 0 0 14px; font-size: 22px; }
+
+  label { display: block; margin-bottom: 14px; font-size: 14px; }
+
+  input[type=text]:not(.trap),
+  input[type=number],
+  select {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 11px 14px;
+    border: 1px solid $beige;
+    border-radius: 999px;
+    background: #fff;
+    color: $text;
+    font: inherit;
+  }
+
+  .check { display: flex; gap: 8px; align-items: center; }
+}
+
+.extras {
+  margin: 0 0 14px;
+  padding: 10px 14px 0;
+  border: 1px solid $beige;
+  border-radius: 12px;
+
+  legend { padding: 0 6px; font-size: 14px; }
+  &__price { margin-left: auto; font-weight: 700; white-space: nowrap; }
+}
+
+// скрытое поле-ловушка для спам-ботов
+.trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.form-status {
+  min-height: 1.2em;
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #5e7a3e;
+
+  &--error { color: #b3432f; }
+}
+
+// ---------- отзывы и контакты ----------
+.reviews__list { @include flex; }
+
+.review {
+  flex: 1;
+  font-size: 14px;
+
+  &__head { @include flex(10px); align-items: center; }
+  &__head img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+}
+
+.stars { color: #d9a441; }
+
+.map { width: 100%; height: 320px; border: 0; border-radius: 12px; }
+address { font-style: normal; margin: 12px 0; }
+.service {
+  align-items: stretch;
+
+  &__body { flex: 1; display: flex; flex-direction: column; }
+  &__body h3 { margin: 0 0 6px; }
+  &__body p { margin: 0 0 8px; font-size: 14px; }
+
+  &__facts {
+    display: grid;
+    gap: 6px;
+    margin: 0 0 12px;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.45;
+
+    li { display: flex; gap: 6px; }
+    span { flex: none; }
+  }
+
+  &__body .service__more { align-self: flex-start; margin-top: auto; }
+}
+
+@media (max-width: 480px) {
+  .service { flex-direction: column; }
+  .service img { width: 100%; height: 180px; }
+}
+
+@media (max-width: 800px) {
+  .booking__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .services__list, .reviews__list { display: block; }
+  .services__list .card, .reviews__list .card { margin-bottom: 12px; }
+}
+// карточки услуг: фото сверху, текст под ним
+.scard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  border-radius: $radius;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
+
+  &__img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    background: $beige;
+  }
+
+  &__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 22px 22px;
+  }
+
+  &__title { margin: 0 0 6px; font-size: 24px; }
+  &__lead { margin: 0 0 16px; font-size: 15px; line-height: 1.5; }
+
+  &__facts {
+    display: grid;
+    gap: 10px;
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    b { color: $terracotta; white-space: nowrap; }
+  }
+
+  &__icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $cream;
+    font-size: 16px;
+  }
+
+  // кнопка «Подробнее» всегда внизу, карточки одной высоты
+  .service__more { align-self: flex-start; margin-top: auto; }
+}
+
+@media (max-width: 600px) {
+  .scard + .scard { margin-top: 16px; }
+  .scard__img { height: 200px; }
+}

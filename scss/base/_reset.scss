@@ -1,0 +1,13 @@
+﻿@use 'variables' as *;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: $cream;
+  color: $text;
+  font-family: $font-body;
+}
+
+h1, h2, h3 { font-family: $font-head; font-weight: 400; }
+img { max-width: 100%; display: block; }

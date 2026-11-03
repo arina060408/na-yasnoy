@@ -1,0 +1,18 @@
+﻿@mixin button($bg, $color: #fff, $border: none) {
+  display: block;
+  padding: 14px 20px;
+  background: $bg;
+  color: $color;
+  border: $border;
+  border-radius: 999px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@mixin flex($gap: 16px) {
+  display: flex;
+  gap: $gap;
+}

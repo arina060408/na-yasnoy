@@ -1,0 +1,74 @@
+@use '../base/variables' as *;
+
+.slider {
+  --gap: 16px;
+  --visible: 3;                       // сколько карточек видно сразу
+  --h: clamp(200px, 26vw, 320px);     // высота карточек
+
+  position: relative;
+
+  &__track {
+    display: flex;
+    gap: var(--gap);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+
+    img {
+      flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+      height: var(--h);
+      object-fit: cover;
+      border-radius: $radius;
+      scroll-snap-align: start;
+      background: $beige;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: calc(var(--h) / 2);
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover { background: #fff; }
+    &--prev { left: 10px; }
+    &--next { right: 10px; }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+
+    button {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #cfc3b5;
+      cursor: pointer;
+
+      &.active { background: $terracotta; }
+    }
+  }
+
+  // все фото помещаются, листать нечего
+  &--static &__btn,
+  &--static &__dots { display: none; }
+}
+
+// на планшете 2 карточки, на телефоне 1
+@media (max-width: 900px) { .slider { --visible: 2; } }
+@media (max-width: 560px) { .slider { --visible: 1; } }

@@ -1,0 +1,16 @@
+{
+  "name": "na-yasnoy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "sass": "sass --watch scss/main.scss css/main.css"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.107.1"
+  }
+}

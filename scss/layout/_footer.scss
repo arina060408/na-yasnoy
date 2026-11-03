@@ -1,0 +1,67 @@
+﻿@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.footer {
+  margin-top: 48px;
+  padding: 40px 24px 24px;
+  background: $text;
+  color: $cream;
+
+  a { color: inherit; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    gap: 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: $font-head;
+    font-size: 28px;
+    text-decoration: none;
+  }
+
+  h4 {
+    margin: 0 0 8px;
+    font-family: $font-body;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: .7;
+  }
+
+  p { margin: 0 0 8px; font-size: 14px; line-height: 1.6; }
+
+  &__socials { @include flex(10px); margin-top: 4px; }
+
+  &__social {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+    transition: background .2s;
+
+    svg { width: 20px; height: 20px; }
+    &:hover { background: $terracotta; }
+  }
+
+  &__copy {
+    max-width: 1280px;
+    margin: 28px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, .15);
+    font-size: 13px;
+    opacity: .6;
+  }
+}
+
+@media (max-width: 800px) {
+  .footer__grid { grid-template-columns: 1fr; gap: 24px; }
+}
