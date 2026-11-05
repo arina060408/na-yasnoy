@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dom-yasnaya.site/sitemap.xml
