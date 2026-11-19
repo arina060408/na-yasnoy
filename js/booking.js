@@ -72,11 +72,23 @@
     for (let d = 1; d <= count; d++) {
       const date = new Date(y, m, d, 12);
       const key = iso(date);
-      const b = document.createElement('button');
+            const b = document.createElement('button');
       b.type = 'button';
       b.textContent = d;
-      if (BUSY.includes(key) || date < today) { b.classList.add('busy'); b.disabled = true; }
-      if (start && key >= start && key <= (end || start)) b.classList.add('picked');
+
+      const isPast = date < today;
+      const nightBusy = BUSY.includes(key);
+      const inRange = start && key >= start && key <= (end || start);
+
+      // по умолчанию занятый (или прошедший) день выбрать нельзя
+      let blocked = isPast || nightBusy;
+      // но как день ВЫЕЗДА занятый день выбрать можно,
+      // если все ночи между заездом и этим днём свободны
+      if (start && !end && key > start && !isPast && !hasBusyBetween(start, key)) blocked = false;
+
+      if ((isPast || nightBusy) && !inRange) b.classList.add('busy');
+      if (inRange) b.classList.add('picked');
+      b.disabled = blocked;
       b.addEventListener('click', () => pick(key));
       daysEl.appendChild(b);
     }
