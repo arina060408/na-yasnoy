@@ -72,7 +72,7 @@
     for (let d = 1; d <= count; d++) {
       const date = new Date(y, m, d, 12);
       const key = iso(date);
-            const b = document.createElement('button');
+      const b = document.createElement('button');
       b.type = 'button';
       b.textContent = d;
 

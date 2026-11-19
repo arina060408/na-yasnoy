@@ -65,14 +65,15 @@
 
   <div class="slider" id="slider">
     <div class="slider__track" id="track">
-      <img src="img/dom_sp22.jpg" alt="Спальня в доме На Ясной, Гродно">
-      <img src="img/dom_sp2.jpg" alt="Спальня с двуспальной кроватью">
-      <img src="img/dom_sp1.jpg" alt="Уютная спальня в доме с баней">
-      <img src="img/dom_sp11.jpg" alt="Спальня на втором этаже">
-      <img src="img/dom2.jpg" alt="Терраса дома для отдыха компанией">
-      <img src="img/dom4.jpg" alt="Терраса с видом на двор">
-      <img src="img/dom_gost.jpg" alt="Гостиная с диваном и столом для компании">
-      <img src="img/dom.jpg" alt="Дом На Ясной с баней и чаном, Гродно">
+      <div class="slider__track" id="track">
+  <img src="img/dom_sp22.jpg" alt="Спальня в доме На Ясной, Гродно" fetchpriority="high">
+  <img src="img/dom_sp2.jpg" alt="Спальня с двуспальной кроватью" loading="lazy">
+  <img src="img/dom_sp1.jpg" alt="Уютная спальня в доме с баней" loading="lazy">
+  <img src="img/dom_sp11.jpg" alt="Спальня на втором этаже" loading="lazy">
+  <img src="img/dom2.jpg" alt="Терраса дома для отдыха компанией" loading="lazy">
+  <img src="img/dom4.jpg" alt="Терраса с видом на двор" loading="lazy">
+  <img src="img/dom_gost.jpg" alt="Гостиная с диваном и столом для компании" loading="lazy">
+  <img src="img/dom.jpg" alt="Дом На Ясной с баней и чаном, Гродно" loading="lazy">
     </div>
     <button class="slider__btn slider__btn--prev" id="prev-slide" type="button" aria-label="Назад">‹</button>
     <button class="slider__btn slider__btn--next" id="next-slide" type="button" aria-label="Вперёд">›</button>
@@ -85,7 +86,7 @@
     <div class="services__list">
 
       <article class="scard">
-        <img class="scard__img" src="img/bania_main.JPG" alt="Русская баня">
+        <img class="scard__img" src="img/bania_main.JPG" alt="Русская баня" loading="lazy">
         <div class="scard__body">
           <h3 class="scard__title">Русская баня</h3>
           <p class="scard__lead">Горячий пар, берёзовые веники и бодрящая купель</p>
@@ -106,7 +107,7 @@
       </article>
 
       <article class="scard">
-        <img class="scard__img" src="img/chan_main.jpg" alt="Сибирский чан">
+        <img class="scard__img" src="img/chan_main.jpg" alt="Сибирский чан" loading="lazy">
         <div class="scard__body">
           <h3 class="scard__title">Сибирский чан</h3>
           <p class="scard__lead">Купание на свежем воздухе: пар уносит суету, а ветер бодрит — тотальное расслабление</p>
@@ -325,7 +326,7 @@
 
   <div class="modal__body">
     <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
-    <img src="img/bania_main.JPG" alt="Русская баня">
+    <img src="img/bania_main.JPG" alt="Русская баня" loading="lazy">
     <h3>Русская баня</h3>
     <p class="modal__lead">Горячий пар, берёзовые веники и бодрящая купель: всё, чтобы отдохнуть и по-настоящему перезагрузиться.</p>
 
@@ -362,7 +363,7 @@
 <dialog class="modal" id="modal-chan">
   <div class="modal__body">
     <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
-    <img src="img/chan_main.jpg" alt="Сибирский чан">
+    <img src="img/chan_main.jpg" alt="Сибирский чан" loading="lazy">
     <h3>Сибирский чан</h3>
     <p class="modal__lead">Горячий чан на свежем воздухе среди деревьев: неспешный отдых для души и тела.</p>
 
