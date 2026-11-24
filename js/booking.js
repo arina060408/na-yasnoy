@@ -256,7 +256,7 @@
         throw new Error(result.error || 'error');
       }
 
-    if (response.ok) {
+    if (typeof gtag === 'function') {
     gtag('event', 'conversion', {
     'send_to': 'AW-18553687776/y0L8CJqWtL4dEOCdi49F'
   });
