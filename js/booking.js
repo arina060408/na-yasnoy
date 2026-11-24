@@ -256,6 +256,12 @@
         throw new Error(result.error || 'error');
       }
 
+    if (response.ok) {
+    gtag('event', 'conversion', {
+    'send_to': 'AW-18553687776/y0L8CJqWtL4dEOCdi49F'
+  });
+  // дальше ваше сообщение «Заявка отправлена»
+}
       resetForm();
       setStatus('Спасибо! Заявка отправлена, мы свяжемся с вами для подтверждения.');
     } catch (err) {
